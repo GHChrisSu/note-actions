@@ -11,7 +11,7 @@ import nacl from "tweetnacl";
 import type { Reference } from "./types.js";
 import { MEMO_PROGRAM_ID } from "./constants.js";
 import { findReference } from "./findReference.js";
-import { SOLANA_ACTIONS_PROTOCOL } from "@solana/actions-spec";
+import { SOLANA_ACTIONS_PROTOCOL } from "@note/actions-spec";
 
 const ACTIONS_IDENTITY_SCHEMA = {
   separator: ":",

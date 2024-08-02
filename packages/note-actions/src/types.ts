@@ -14,7 +14,7 @@ export type {
   SupportedProtocols,
   SOLANA_PAY_PROTOCOL,
   SOLANA_ACTIONS_PROTOCOL,
-} from "@solana/actions-spec";
+} from "@note/actions-spec";
 
 /** `reference` in the [Solana Pay spec](https://github.com/solana-labs/solana-pay/blob/master/SPEC.md#reference). */
 export type Reference = PublicKey;

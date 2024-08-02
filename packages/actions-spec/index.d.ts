@@ -1,20 +1,30 @@
 /**
- * Solana Actions and blinks specification - v2.0
+ * Note Actions fork from Solana Actions and blinks specification - v2.0
  */
-
 /**
- * Protocol identifier for the Solana Actions protocol
+ * Protocol identifier for the Note Actions protocol
  */
-export type SOLANA_ACTIONS_PROTOCOL = "solana-action:";
+export type BITCOIN_ACTIONS_PROTOCOL = "bitcoin-action:";
 
 /**
  * @internal
- * Protocol identifier for the Solana Pay protocol
+ * Protocol identifier for the Note Pay protocol
  */
-export type SOLANA_PAY_PROTOCOL = "solana:";
+export type BITCOIN_PAY_PROTOCOL = "bitcoin:";
+
+/**
+ * Protocol identifier for the Note Actions protocol
+ */
+export type NOTE_ACTIONS_PROTOCOL = "note-action:";
+
+/**
+ * @internal
+ * Protocol identifier for the Note Pay protocol
+ */
+export type NOTE_PAY_PROTOCOL = "note:";
 
 /** @internal */
-export type SupportedProtocols = SOLANA_ACTIONS_PROTOCOL | SOLANA_PAY_PROTOCOL;
+export type SupportedProtocols = NOTE_ACTIONS_PROTOCOL | NOTE_PAY_PROTOCOL;
 
 /**
  * The `actions.json` instruct clients on what website URLs support

@@ -1,12 +1,12 @@
 {
   "private": false,
-  "name": "@solana/actions-spec",
-  "version": "2.1.0",
-  "author": "Solana Maintainers <maintainers@solana.foundation>",
-  "repository": "https://github.com/solana-developers/solana-actions",
-  "homepage": "https://github.com/solana-developers/solana-actions#readme",
+  "name": "@note/actions-spec",
+  "version": "1.0.0",
+  "author": "suhao <suhao@chainbow.io>",
+  "repository": "https://github.com/GHChrisSu/note-actions",
+  "homepage": "https://github.com/GHChrisSu/note-actions#readme",
   "bugs": {
-    "url": "https://github.com/solana-developers/solana-actions/issues"
+    "url": "https://github.com/GHChrisSu/note-actions/issues"
   },
   "license": "Apache-2.0",
   "publishConfig": {
@@ -24,28 +24,8 @@
   },
   "contributors": [
     {
-      "name": "Jordan",
-      "url": "https://github.com/jordaaash"
-    },
-    {
-      "name": "Nick Frostbutter",
-      "url": "https://github.com/nickfrosty"
-    },
-    {
-      "name": "Jon Wong",
-      "url": "https://github.com/jnwng"
-    },
-    {
-      "name": "Nick Zhelezkov",
-      "url": "https://github.com/zhelezkov"
-    },
-    {
-      "name": "Alexey Tsymbal",
-      "url": "https://github.com/Baulore"
-    },
-    {
-      "name": "Filipp Sher",
-      "url": "https://github.com/fsher"
+      "name": "Chris",
+      "url": "https://github.com/GHChrisSu"
     }
   ]
 }

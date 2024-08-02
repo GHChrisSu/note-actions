@@ -1,8 +1,8 @@
 {
-  "name": "solana-actions",
+  "name": "note-actions",
   "version": "0.0.1",
-  "author": "Solana Maintainers <maintainers@solana.foundation>",
-  "repository": "https://github.com/solana-developers/solana-actions",
+  "author": "suhao <suhao@chainbow.io>",
+  "repository": "https://github.com/GHChrisSu/note-actions",
   "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,
@@ -15,9 +15,9 @@
   "description": "",
   "main": "./src/index.ts",
   "keywords": [],
-  "homepage": "https://github.com/solana-developers/solana-actions#readme",
+  "homepage": "https://github.com/GHChrisSu/note-actions#readme",
   "bugs": {
-    "url": "https://github.com/solana-developers/solana-actions/issues"
+    "url": "https://github.com/GHChrisSu/note-actions/issues"
   },
   "publishConfig": {
     "access": "public"

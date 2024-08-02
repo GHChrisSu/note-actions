@@ -8,7 +8,7 @@ export const siteConfig: SiteConfig = {
   links: {
     twitter: "https://twitter.com/nickfrosty",
     github:
-      "https://github.com/solana-developers/solana-actions/tree/main/examples/next-js",
+      "https://github.com/GHChrisSu/note-actions/tree/main/examples/next-js",
     docs: "https://solana.com/docs/advanced/actions",
   },
 };

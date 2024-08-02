@@ -18,7 +18,7 @@
 
 ### Minor Changes
 
-- cf4a81e: use the `@solana/actions-spec` repo for the official spec types
+- cf4a81e: use the `@note/actions-spec` repo for the official spec types
 
 ## 1.1.2
 

@@ -24,7 +24,7 @@ Find
 Find example code snippets on how to build several different Solana Actions:
 
 - [Deployed sample code snippets](https://solana-actions.vercel.app/)
-- [Source code for code snippets](https://github.com/solana-developers/solana-actions/tree/main/examples/next-js)
+- [Source code for code snippets](https://github.com/GHChrisSu/note-actions/tree/main/examples/next-js)
 
 ## What are Solana Actions?
 

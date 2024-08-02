@@ -18,20 +18,20 @@ import QRCodeStyling from "@solana/qr-code-styling";
  * @param background - Background color, which should be light for device compatibility.
  * @param color - Foreground color, which should be dark for device compatibility.
  */
-export function createSolanaQR(
+export function createNoteQR(
   url: string | URL,
   size = 512,
   background = "white",
   color = "black",
 ): QRCodeStyling {
-  return new QRCodeStyling(createSolanaQROptions(url, size, background, color));
+  return new QRCodeStyling(createNoteQROptions(url, size, background, color));
 }
 
 /** @ignore */
 export const SolanaQRCodeStyling = QRCodeStyling;
 
 /** @ignore */
-export function createSolanaQROptions(
+export function createNoteQROptions(
   url: string | URL,
   size = 512,
   background = "white",

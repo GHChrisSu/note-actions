@@ -1,4 +1,4 @@
-# @solana/actions-spec
+# @note/actions-spec
 
 ## 2.1.0
 

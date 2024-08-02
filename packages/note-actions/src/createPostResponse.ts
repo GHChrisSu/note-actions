@@ -13,7 +13,7 @@ import {
   createActionIdentifierInstruction,
   getActionIdentityFromEnv,
 } from "./actionIdentity.js";
-import { ActionPostResponse } from "@solana/actions-spec";
+import { ActionPostResponse } from "@note/actions-spec";
 
 /**
  * Thrown when the Action POST response cannot be created.

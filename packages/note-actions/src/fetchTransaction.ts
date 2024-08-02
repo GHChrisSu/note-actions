@@ -1,4 +1,4 @@
-import { ActionPostRequest, ActionPostResponse } from "@solana/actions-spec";
+import { ActionPostRequest, ActionPostResponse } from "@note/actions-spec";
 import { Commitment, Connection, PublicKey } from "@solana/web3.js";
 import { Transaction } from "@solana/web3.js";
 import fetch from "cross-fetch";
