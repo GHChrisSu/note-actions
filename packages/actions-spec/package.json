@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "@note/actions-spec",
+  "name": "@note-protocol/actions-spec",
   "version": "1.0.0",
   "author": "suhao <suhao@chainbow.io>",
   "repository": "https://github.com/GHChrisSu/note-actions",
