@@ -30,7 +30,7 @@ export function parseURL(
 
   const protocol = url.protocol as SupportedProtocols;
 
-  if (protocol !== "solana:" && protocol !== "solana-action:") {
+  if (protocol !== "note:" && protocol !== "note-action:") {
     throw new ParseURLError("protocol invalid");
   }
   if (!url.pathname) throw new ParseURLError("pathname missing");
@@ -58,7 +58,7 @@ function parseActionRequestURL({
 }
 
 function parseBlinkURL(blink: URL): BlinkURLFields {
-  let link = blink.searchParams.get(BLINKS_QUERY_PARAM);
+  const link = blink.searchParams.get(BLINKS_QUERY_PARAM);
   if (!link) throw new ParseURLError("invalid blink url");
 
   return {

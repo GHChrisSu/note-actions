@@ -1,5 +1,9 @@
-import { ActionPostRequest, ActionPostResponse } from "@note-protocol/actions-spec";
-import { Commitment, Connection, PublicKey } from "@solana/web3.js";
+import type {
+  ActionPostRequest,
+  ActionPostResponse,
+} from "@note-protocol/actions-spec";
+import type { Commitment, Connection } from "@solana/web3.js";
+import { PublicKey } from "@solana/web3.js";
 import { Transaction } from "@solana/web3.js";
 import fetch from "cross-fetch";
 import { toUint8Array } from "js-base64";

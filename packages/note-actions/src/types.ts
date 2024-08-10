@@ -12,8 +12,8 @@ export type {
   ActionParameter,
   ActionRuleObject,
   SupportedProtocols,
-  SOLANA_PAY_PROTOCOL,
-  SOLANA_ACTIONS_PROTOCOL,
+  NOTE_PAY_PROTOCOL,
+  NOTE_ACTIONS_PROTOCOL,
 } from "@note-protocol/actions-spec";
 
 /** `reference` in the [Solana Pay spec](https://github.com/solana-labs/solana-pay/blob/master/SPEC.md#reference). */
