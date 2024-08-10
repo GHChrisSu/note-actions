@@ -1,4 +1,4 @@
-# Solana Actions and Blockchain Links (Blinks)
+# Note Actions and Blockchain Links (Blinks)
 
 [Read the docs to get started](https://solana.com/docs/advanced/actions)
 
