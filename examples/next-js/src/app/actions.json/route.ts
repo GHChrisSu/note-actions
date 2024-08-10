@@ -1,4 +1,4 @@
-import { ACTIONS_CORS_HEADERS, ActionsJson } from "@solana/actions";
+import { ACTIONS_CORS_HEADERS, ActionsJson } from "@note-protocol/actions";
 
 export const GET = async () => {
   const payload: ActionsJson = {

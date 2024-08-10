@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SolanaQRCode } from "@/components/qr-code";
+import { NoteQRCode } from "@/components/qr-code";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
@@ -37,7 +37,7 @@ export default function Pages() {
       </div>
 
       <Card className="group-hover:border-primary size-[400px] rounded overflow-hidden text-center flex items-center justify-center w-min mx-auto">
-        <SolanaQRCode
+        <NoteQRCode
           url={apiPath}
           color="white"
           background="black"

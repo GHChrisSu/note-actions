@@ -12,7 +12,7 @@ import {
 import {
   ACTIONS_CORS_HEADERS_MIDDLEWARE,
   createPostResponse,
-} from "@solana/actions";
+} from "@note-protocol/actions";
 
 const DEFAULT_SOL_ADDRESS = Keypair.generate().publicKey;
 const DEFAULT_SOL_AMOUNT = 1;

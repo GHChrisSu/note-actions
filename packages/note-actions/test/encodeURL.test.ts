@@ -7,7 +7,7 @@ describe("encodeURL", () => {
 
       const url = encodeURL({ link: new URL(link) });
 
-      expect(String(url)).toBe(`solana-action:${link}`);
+      expect(String(url)).toBe(`note-action:${link}`);
     });
 
     it("encodes a URL with additional action params", () => {
@@ -18,7 +18,7 @@ describe("encodeURL", () => {
       const url = encodeURL({ link: new URL(link), label, message });
 
       expect(String(url)).toBe(
-        `solana-action:${link}?label=${label}&message=${message}`,
+        `note-action:${link}?label=${label}&message=${message}`,
       );
     });
 
@@ -27,7 +27,7 @@ describe("encodeURL", () => {
 
       const url = encodeURL({ link: new URL(link) });
 
-      expect(String(url)).toBe(`solana-action:${encodeURIComponent(link)}`);
+      expect(String(url)).toBe(`note-action:${encodeURIComponent(link)}`);
     });
 
     it("encodes a URL with query parameters AND action params", () => {
@@ -38,7 +38,7 @@ describe("encodeURL", () => {
       const url = encodeURL({ link: new URL(link), label, message });
 
       expect(String(url)).toBe(
-        `solana-action:${encodeURIComponent(
+        `note-action:${encodeURIComponent(
           link,
         )}?label=${label}&message=${message}`,
       );
@@ -58,7 +58,7 @@ describe("encodeURL", () => {
       });
 
       expect(String(url.searchParams.get("action"))).toBe(
-        encodeURIComponent(`solana-action:${link}`),
+        encodeURIComponent(`note-action:${link}`),
       );
     });
 
@@ -74,7 +74,7 @@ describe("encodeURL", () => {
       });
 
       expect(String(url.searchParams.get("action"))).toBe(
-        encodeURIComponent(`solana-action:${encodeURIComponent(link)}`),
+        encodeURIComponent(`note-action:${encodeURIComponent(link)}`),
       );
     });
 
@@ -90,7 +90,7 @@ describe("encodeURL", () => {
       });
 
       expect(String(url.searchParams.get("action"))).toBe(
-        encodeURIComponent(`solana-action:${link}`),
+        encodeURIComponent(`note-action:${link}`),
       );
     });
 
@@ -106,7 +106,7 @@ describe("encodeURL", () => {
       });
 
       expect(String(url.searchParams.get("action"))).toBe(
-        encodeURIComponent(`solana-action:${encodeURIComponent(link)}`),
+        encodeURIComponent(`note-action:${encodeURIComponent(link)}`),
       );
     });
   });

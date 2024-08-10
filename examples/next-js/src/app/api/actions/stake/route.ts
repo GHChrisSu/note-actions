@@ -8,7 +8,7 @@ import {
   createPostResponse,
   ActionGetResponse,
   ActionPostRequest,
-} from "@solana/actions";
+} from "@note-protocol/actions";
 import {
   Authorized,
   clusterApiUrl,

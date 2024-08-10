@@ -3,14 +3,14 @@ import { BLINKS_QUERY_PARAM } from "./constants.js";
 import type { ActionRequestURLFields, BlinkURLFields } from "./types.js";
 
 /**
- * Thrown when fields cannot be encoded as a blink or Solana Action URL.
+ * Thrown when fields cannot be encoded as a blink or Note Action URL.
  */
 export class EncodeURLError extends Error {
   name = "EncodeURLError";
 }
 
 /**
- * Encode a Solana Action URL.
+ * Encode a Note Action URL.
  *
  * @param fields Fields to encode in the URL.
  *

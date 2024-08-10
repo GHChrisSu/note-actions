@@ -9,7 +9,7 @@ import {
   MEMO_PROGRAM_ID,
   ActionGetResponse,
   ActionPostRequest,
-} from "@solana/actions";
+} from "@note-protocol/actions";
 import {
   clusterApiUrl,
   ComputeBudgetProgram,

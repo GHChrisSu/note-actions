@@ -1,6 +1,6 @@
 "use client";
 
-import { createSolanaQR, encodeURL } from "@solana/actions";
+import { createSolanaQR, encodeURL } from "@note-protocol/actions";
 import { useEffect, useRef } from "react";
 
 type ComponentProps = {
@@ -11,7 +11,7 @@ type ComponentProps = {
   size?: number;
 };
 
-export function SolanaQRCode({
+export function NoteQRCode({
   url,
   className,
   background = "transparent",
