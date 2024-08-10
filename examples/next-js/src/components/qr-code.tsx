@@ -1,6 +1,6 @@
 "use client";
 
-import { createSolanaQR, encodeURL } from "@note-protocol/actions";
+import { createNoteQR, encodeURL } from "@note-protocol/actions";
 import { useEffect, useRef } from "react";
 
 type ComponentProps = {
@@ -24,12 +24,12 @@ export function NoteQRCode({
       {
         link: new URL(url, window.location.href),
       },
-      "solana:",
+      "note-action:",
     );
 
     console.log("encodedUrl:", encodedUrl.toString());
 
-    const qr = createSolanaQR(encodedUrl, size, background, color);
+    const qr = createNoteQR(encodedUrl, size, background, color);
 
     if (ref.current && !ref.current.innerHTML) {
       qr.append(ref.current);
