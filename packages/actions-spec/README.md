@@ -24,7 +24,7 @@ The types and interfaces declared within this readme files are often the
 simplified version of the types to aid in readability.
 
 For better type safety and improved developer experience, the
-`@note/actions-spec` package contains more complex type definitions. You can
+`@note-protocol/actions-spec` package contains more complex type definitions. You can
 find the
 [source code for them here](https://github.com/GHChrisSu/note-actions/blob/main/packages/actions-spec/index.d.ts).
 

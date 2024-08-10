@@ -1,19 +1,17 @@
-import {
+import type {
   Commitment,
-  PublicKey,
   Signer,
   TransactionInstruction,
-  TransactionMessage,
   VersionedTransaction,
-  Transaction,
 } from "@solana/web3.js";
+import { PublicKey, TransactionMessage, Transaction } from "@solana/web3.js";
 import type { Reference } from "./types.js";
 import { MEMO_PROGRAM_ID } from "./constants.js";
 import {
   createActionIdentifierInstruction,
   getActionIdentityFromEnv,
 } from "./actionIdentity.js";
-import { ActionPostResponse } from "@note/actions-spec";
+import type { ActionPostResponse } from "@note-protocol/actions-spec";
 
 /**
  * Thrown when the Action POST response cannot be created.
@@ -81,7 +79,7 @@ async function prepareVersionedTransaction({
   reference,
   actionIdentity,
 }: CreateActionPostResponseArgs<VersionedTransaction>): Promise<ActionPostResponse> {
-  let message = TransactionMessage.decompile(fields.transaction.message);
+  const message = TransactionMessage.decompile(fields.transaction.message);
 
   if (message.instructions.length <= 0) {
     throw new CreatePostResponseError("at least 1 instruction is required");

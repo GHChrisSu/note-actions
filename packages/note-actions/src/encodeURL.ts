@@ -1,4 +1,4 @@
-import { SupportedProtocols } from "@note/actions-spec";
+import { SupportedProtocols } from "@note-protocol/actions-spec";
 import { BLINKS_QUERY_PARAM } from "./constants.js";
 import type { ActionRequestURLFields, BlinkURLFields } from "./types.js";
 

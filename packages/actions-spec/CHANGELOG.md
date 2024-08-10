@@ -1,4 +1,4 @@
-# @note/actions-spec
+# @note-protocol/actions-spec
 
 ## 2.1.0
 

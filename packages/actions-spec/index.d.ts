@@ -182,6 +182,8 @@ export interface ActionPostResponse {
   transaction: string;
   /** describes the nature of the transaction */
   message?: string;
+  /** callback URL to be invoked after the transaction is confirmed */
+  callback?: string;
 }
 
 /**

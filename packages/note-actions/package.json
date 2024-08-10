@@ -1,5 +1,5 @@
 {
-  "name": "@note/actions",
+  "name": "@note-protocol/actions",
   "version": "1.0.0",
   "author": "suhao <suhao@chainbow.io>",
   "repository": "https://github.com/GHChrisSu/note-actions",
@@ -49,7 +49,7 @@
     "publish": "npm run release && changeset publish && git add -A && git push --follow-tags && npm run deploy:docs"
   },
   "dependencies": {
-    "@note/actions-spec": "^1.0.0",
+    "@note-protocol/actions-spec": "^1.0.0",
     "@solana/qr-code-styling": "^1.6.0",
     "@solana/web3.js": "^1.61.0",
     "bs58": "^5.0.0",

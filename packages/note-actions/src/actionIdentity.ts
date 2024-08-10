@@ -1,21 +1,19 @@
-import {
+import type {
   ConfirmedSignatureInfo,
   Connection,
-  Keypair,
-  PublicKey,
   Signer,
-  TransactionInstruction,
 } from "@solana/web3.js";
+import { Keypair, PublicKey, TransactionInstruction } from "@solana/web3.js";
 import bs58 from "bs58";
 import nacl from "tweetnacl";
 import type { Reference } from "./types.js";
 import { MEMO_PROGRAM_ID } from "./constants.js";
 import { findReference } from "./findReference.js";
-import { SOLANA_ACTIONS_PROTOCOL } from "@note/actions-spec";
+import type { NOTE_ACTIONS_PROTOCOL } from "@note-protocol/actions-spec";
 
 const ACTIONS_IDENTITY_SCHEMA = {
   separator: ":",
-  protocol: ("solana-action:" as SOLANA_ACTIONS_PROTOCOL).replace(":", ""),
+  protocol: ("note-action:" as NOTE_ACTIONS_PROTOCOL).replace(":", ""),
   /** avoids magic numbers */
   scheme: {
     protocol: 0, // should always be zero
