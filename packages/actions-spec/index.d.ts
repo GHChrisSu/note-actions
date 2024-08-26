@@ -163,15 +163,60 @@ export interface ActionParameterSelectable<T extends ActionParameterType>
 /**
  * Response body payload sent via the Action POST Request
  */
-export interface ActionPostRequest<T = string> {
-  /** base58-encoded public key of an account that may sign the transaction */
+export interface ActionPostRequest {
+  /** public key */
   account: string;
-  /**
-   * Key-value map of parameter values from user's input
-   * - key - parameter name
-   * - value - input value (by default type of `string`, if multi-option, type of `Array<string>`
-   */
-  data?: Record<keyof T, string | Array<string>>;
+  tokenAddress?: string;
+  /** Any other arbitrary fields */
+  [key: string]: any;
+}
+
+/**
+ * Represents different types of Bitcoin addresses and script types
+ */
+export type AddressType =
+  | "P2PKH"
+  | "P2PK-NOTE"
+  | "P2SH"
+  | "P2SH-NOTE"
+  | "P2WPKH"
+  | "P2WSH"
+  | "P2WSH-NOTE"
+  | "P2TR"
+  | "P2TR-NOTE-V1"
+  | "P2TR-NOTE"
+  | "P2TR-COMMIT-NOTE";
+
+/**
+ * Represents an Unspent Transaction Output (UTXO)
+ */
+export interface IUtxo {
+  /** Transaction ID */
+  txId: string;
+  /** Output index in the transaction */
+  outputIndex: number;
+  /** Amount in satoshis */
+  satoshis: number;
+  /** Script in hexadecimal format */
+  script: string;
+  /** Hash of the script */
+  scriptHash: string;
+  /** Type of address */
+  type: AddressType;
+  /** Optional: Raw transaction in hexadecimal format */
+  txHex?: string;
+  /** Optional: Sequence number for the input */
+  sequence?: number;
+}
+
+/**
+ * Represents a recipient address and amount for sending funds
+ */
+export interface ISendToAddress {
+  /** Recipient's Bitcoin address */
+  address: string;
+  /** Amount to send in satoshis (as number) or in bitcoins (as bigint) */
+  amount: number | bigint;
 }
 
 /**
@@ -184,6 +229,13 @@ export interface ActionPostResponse {
   message?: string;
   /** callback URL to be invoked after the transaction is confirmed */
   callback?: string;
+
+  /** Optional: Additional payload data */
+  payload?: string;
+  /** Optional: UTXO for the note */
+  noteUtxo?: IUtxo;
+  /** Optional: Additional outputs for the transaction */
+  extOutputs?: ISendToAddress[];
 }
 
 /**
