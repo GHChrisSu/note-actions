@@ -1,13 +1,8 @@
 {
   "private": false,
   "name": "@note-protocol/actions-spec",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "suhao <suhao@chainbow.io>",
-  "repository": "https://github.com/GHChrisSu/note-actions",
-  "homepage": "https://github.com/GHChrisSu/note-actions#readme",
-  "bugs": {
-    "url": "https://github.com/GHChrisSu/note-actions/issues"
-  },
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"

@@ -2,11 +2,6 @@
   "name": "@note-protocol/actions",
   "version": "1.0.2",
   "author": "suhao <suhao@chainbow.io>",
-  "repository": "https://github.com/GHChrisSu/note-actions",
-  "homepage": "https://github.com/GHChrisSu/note-actions#readme",
-  "bugs": {
-    "url": "https://github.com/GHChrisSu/note-actions/issues"
-  },
   "license": "Apache-2.0",
   "type": "module",
   "sideEffects": false,

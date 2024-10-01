@@ -1,16 +1,16 @@
 /**
- * Note Actions fork from Solana Actions and blinks specification - v2.0
+ * Note Actions was inspired from Solana Actions and blinks specification - v2.0
  */
 /**
- * Protocol identifier for the Note Actions protocol
+ * Protocol identifier for the Bitcoin Actions protocol
  */
 export type BITCOIN_ACTIONS_PROTOCOL = "bitcoin-action:";
 
 /**
  * @internal
- * Protocol identifier for the Note Pay protocol
+ * Protocol identifier for the Bitcoin Payment protocol
  */
-export type BITCOIN_PAY_PROTOCOL = "bitcoin:";
+export type BITCOIN_PAYMENT_PROTOCOL = "bitcoin:";
 
 /**
  * Protocol identifier for the Note Actions protocol
@@ -19,36 +19,23 @@ export type NOTE_ACTIONS_PROTOCOL = "note-action:";
 
 /**
  * @internal
- * Protocol identifier for the Note Pay protocol
+ * Protocol identifier for the Note Payment protocol
  */
-export type NOTE_PAY_PROTOCOL = "note:";
+export type NOTE_PAYMENT_PROTOCOL = "note:";
 
 /** @internal */
-export type SupportedProtocols = NOTE_ACTIONS_PROTOCOL | NOTE_PAY_PROTOCOL;
-
-/**
- * The `actions.json` instruct clients on what website URLs support
- * Solana Actions and provide the mapping rules for blink urls to reach their Actions API.
- */
-export interface ActionsJson {
-  rules: ActionRuleObject[];
-}
-
-/**
- * Rule configuration to map a website's URL (`pathPattern`) to an Actions API endpoint (`apiPath`)
- */
-export interface ActionRuleObject {
-  /** relative (preferred) or absolute path to perform the rule mapping from */
-  pathPattern: string;
-  /** relative (preferred) or absolute path that supports Action requests */
-  apiPath: string;
-}
+export type SupportedProtocols =
+  | BITCOIN_ACTIONS_PROTOCOL
+  | BITCOIN_PAYMENT_PROTOCOL
+  | NOTE_ACTIONS_PROTOCOL
+  | NOTE_PAYMENT_PROTOCOL;
 
 /**
  * # Reserved for future use
  *
  * Response body payload sent via the Action GET Request
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ActionGetRequest {}
 
 /**
@@ -82,160 +69,56 @@ export interface LinkedAction {
   href: string;
   /** button text rendered to the user */
   label: string;
-  /**
-   * Parameters used to accept user input within an action
-   * @see {ActionParameter}
-   * @see {ActionParameterSelectable}
-   */
-  parameters?: Array<TypedActionParameter>;
+  /** parameters used to accept user input within an action */
+  parameters?: ActionParameter[];
 }
-
-export type TypedActionParameter<
-  T extends ActionParameterType = ActionParameterType,
-> = T extends SelectableParameterType
-  ? ActionParameterSelectable<T>
-  : ActionParameter<T>;
 
 /**
  * Parameter to accept user input within an action
  */
-export interface ActionParameter<T extends ActionParameterType, M = MinMax<T>> {
-  /** input field type */
-  type?: T;
+export interface ActionParameter {
   /** parameter name in url */
   name: string;
   /** placeholder text for the user input field */
   label?: string;
   /** declare if this field is required (defaults to `false`) */
   required?: boolean;
-  /** regular expression pattern to validate user input client side */
-  pattern?: string;
-  /** human-readable description of the `type` and/or `pattern`, represents a caption and error, if value doesn't match */
-  patternDescription?: string;
-  /** the minimum value allowed based on the `type` */
-  min?: M;
-  /** the maximum value allowed based on the `type` */
-  max?: M;
-}
-
-type MinMax<T extends ActionParameterType> = T extends "date" | "datetime-local"
-  ? string
-  : T extends "radio" | "select"
-  ? never
-  : number;
-
-type GeneralParameterType =
-  | "text"
-  | "email"
-  | "url"
-  | "number"
-  | "date"
-  | "datetime-local"
-  | "textarea";
-
-type SelectableParameterType = "select" | "radio" | "checkbox";
-
-/**
- * Input field type to present to the user. Normally resembling the respective
- * [HTML `input` types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
- * or standard HTML element (e.g. `select`) for the platform being used (web, mobile, etc).
- * @default `text`
- */
-export type ActionParameterType =
-  | GeneralParameterType
-  | SelectableParameterType;
-
-export interface ActionParameterSelectable<T extends ActionParameterType>
-  extends Omit<ActionParameter<T>, "pattern"> {
-  /**
-   * Listing of the options the user should be able to select from
-   */
-  options: Array<{
-    /** displayed UI label of this selectable option */
-    label: string;
-    /** value of this selectable option */
-    value: string;
-    /** whether this option should be selected by default */
-    selected?: boolean;
-  }>;
 }
 
 /**
  * Response body payload sent via the Action POST Request
  */
 export interface ActionPostRequest {
-  /** public key */
+  /** public key of an account that may sign the transaction */
   account: string;
+  /** unique ID of the wallet */
+  walletId?: string;
+  /** main address of the wallet */
+  address?: string;
+  /** NOTE protocol token address of the wallet */
   tokenAddress?: string;
-  /** Any other arbitrary fields */
-  [key: string]: any;
-}
-
-/**
- * Represents different types of Bitcoin addresses and script types
- */
-export type AddressType =
-  | "P2PKH"
-  | "P2PK-NOTE"
-  | "P2SH"
-  | "P2SH-NOTE"
-  | "P2WPKH"
-  | "P2WSH"
-  | "P2WSH-NOTE"
-  | "P2TR"
-  | "P2TR-NOTE-V1"
-  | "P2TR-NOTE"
-  | "P2TR-COMMIT-NOTE";
-
-/**
- * Represents an Unspent Transaction Output (UTXO)
- */
-export interface IUtxo {
-  /** Transaction ID */
-  txId: string;
-  /** Output index in the transaction */
-  outputIndex: number;
-  /** Amount in satoshis */
-  satoshis: number;
-  /** Script in hexadecimal format */
-  script: string;
-  /** Hash of the script */
-  scriptHash: string;
-  /** Type of address */
-  type: AddressType;
-  /** Optional: Raw transaction in hexadecimal format */
-  txHex?: string;
-  /** Optional: Sequence number for the input */
-  sequence?: number;
-}
-
-/**
- * Represents a recipient address and amount for sending funds
- */
-export interface ISendToAddress {
-  /** Recipient's Bitcoin address */
-  address: string;
-  /** Amount to send in satoshis (as number) or in bitcoins (as bigint) */
-  amount: number | bigint;
 }
 
 /**
  * Response body payload returned from the Action POST Request
  */
 export interface ActionPostResponse {
-  /** base64 encoded serialized transaction */
-  transaction: string;
+  /** hex encoded serialized transaction */
+  psbtHex?: string;
   /** describes the nature of the transaction */
   message?: string;
-  /** callback URL to be invoked after the transaction is confirmed */
-  callback?: string;
-
-  /** Optional: Additional payload data */
+  /** method to be used for the transaction or message, defaults to `sign` */
+  method?: "sign" | "finish";
+  /** msgpack encoded serialized note payload */
   payload?: string;
-  /** Optional: UTXO for the note */
-  noteUtxo?: IUtxo;
-  /** Optional: Additional outputs for the transaction */
-  extOutputs?: ISendToAddress[];
+  /** note utxos to be spent */
+  noteUtxo?: any;
+  /** note outputs to be created */
+  extOutputs?: Array<any>;
+  /** callback URL to be invoked after the transaction is signed, using the `POST` method */
+  callback?: string;
+  /** non-fatal error message to be displayed to the user */
+  error?: ActionError;
 }
 
 /**
